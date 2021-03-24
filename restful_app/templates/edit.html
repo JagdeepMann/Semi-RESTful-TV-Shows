@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Update</title>
+</head>
+<body>
+    <div class="container">
+        <a href="/shows">Go Back</a>
+        <h1>Edit Show {{show.id}}</h1>
+
+        <form action="/shows/{{show.id}}/update" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" name="title" class="form-control" value = "{{show.title}}">
+            </div>
+            <div class="form-group">
+                <label for="">Network</label>
+                <input type="text" name="network" class="form-control" value = "{{show.network}}">
+            </div>
+            <div class="form-group">
+                <label for="">Release Date</label>
+                <input type="date" name="release_date" class="form-control" value = "{{show.release_date}}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="" cols="20" rows="10" class = "form-control">{{show.description}}</textarea>
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
